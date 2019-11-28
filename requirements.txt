@@ -1,0 +1,8 @@
+cv2
+numpy
+nltk
+pytesseract
+PIL
+re
+pdf2image
+io
