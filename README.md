@@ -9,6 +9,7 @@ Future Planned Updates:
 - ** Stage 1 **
     - Process image file types (jpeg and png) from the beginning of the process (currently only pdf)
     - Fixes for contour list (returns none if none found, errors out, add a pass)
+    - Ensure landscape mode is more properly taken care of. Not tested enough to see fragility.
     - More robust methodology for ensuring rotation of tilted images (2-3 ideas on this. One being left/right and up/down white space check)
     - Add tilted images to sample folder 
     - Explore different preprocess steps for messier images (need to collect more samples for this)
