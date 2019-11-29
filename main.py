@@ -43,4 +43,4 @@ if __name__ == "__main__":
         img = mop.pdf2image_converter_from_path(doc)
         post_proc_img = mop.apply_preprocessor(img)
         doc_txt, rotated_img = mop.ocr_extractor(post_proc_img)
-    print(doc_txt)
+        print(doc_txt)
