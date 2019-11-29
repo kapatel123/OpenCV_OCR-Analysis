@@ -1,6 +1,7 @@
 # Main Method - OCR
 import numpy as np
 import pytesseract
+from pathlib import Path
 from preprocess_steps import TextPreProcessor
 from PIL import Image
 
@@ -20,7 +21,7 @@ class MainOCRProcessor(TextPreProcessor):
                 sharpened_image = self.sharpen_img(rotated_image)
             return sharpened_image
         else:
-            raise ValueError("Invalid data provided.  Must be a list of images")
+            raise ValueError("Invalid data provided.  Must be list of image(s)")
 
     def ocr_extractor(self, sharpened_image_list):
         docs_text = []
@@ -32,3 +33,10 @@ class MainOCRProcessor(TextPreProcessor):
         rotated_images_array.append(Image.fromarray(sharpened_image_list))
 
         return docs_text, rotated_images_array
+
+
+if __name__ == "__main__":
+    pathlist = Path("testFiles").glob("*.pdf")
+    filepath = [str(x) for x in pathlist]
+    # doc = TextPreProcessor.pdf2image_converter_from_path(filepath)
+    print(filepath)
