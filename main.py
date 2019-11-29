@@ -36,7 +36,11 @@ class MainOCRProcessor(TextPreProcessor):
 
 
 if __name__ == "__main__":
+    mop = MainOCRProcessor() 
     pathlist = Path("testFiles").glob("*.pdf")
     filepath = [str(x) for x in pathlist]
-    # doc = TextPreProcessor.pdf2image_converter_from_path(filepath)
-    print(filepath)
+    for doc in filepath:
+        img = mop.pdf2image_converter_from_path(doc)
+        post_proc_img = mop.apply_preprocessor(img)
+        doc_txt, rotated_img = mop.ocr_extractor(post_proc_img)
+    print(doc_txt)
