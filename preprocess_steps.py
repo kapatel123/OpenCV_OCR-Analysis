@@ -12,12 +12,6 @@ class TextPreProcessor:
     def __init__(self):
         self.english_vocab = set(word.lower() for word in brown.words())
 
-    def pdf2image_converter_from_path(self, pdf_file):
-        if pdf_file is not None:
-            return convert_from_path(pdf_file)
-        else:
-            raise ValueError("Invalid data provided.  Must be a path to a file")
-
     # Preprocess PDF Images
     def img_to_gray(self, image):
         # Apply grayscale filter to image. Return orig. image if issue arises
