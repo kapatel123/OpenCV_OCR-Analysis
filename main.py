@@ -3,6 +3,7 @@ import numpy as np
 import pytesseract
 from pathlib import Path
 from preprocess_steps import TextPreProcessor
+from file_reader import FileInputProcessor
 from PIL import Image
 
 
@@ -36,11 +37,11 @@ class MainOCRProcessor(TextPreProcessor):
 
 
 if __name__ == "__main__":
-    mop = MainOCRProcessor() 
+    mop = MainOCRProcessor()
     pathlist = Path("testFiles").glob("*.pdf")
     filepath = [str(x) for x in pathlist]
     for doc in filepath:
-        img = mop.pdf2image_converter_from_path(doc)
+        img = mop.pdf2image_converter(doc)
         post_proc_img = mop.apply_preprocessor(img)
         doc_txt, rotated_img = mop.ocr_extractor(post_proc_img)
         print(doc_txt)

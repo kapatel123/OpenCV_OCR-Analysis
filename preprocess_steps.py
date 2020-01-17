@@ -3,12 +3,13 @@ import numpy as np
 from nltk.corpus import brown
 import pytesseract
 from PIL import Image
+from file_reader import FileInputProcessor
 import re
 from pdf2image import convert_from_path, convert_from_bytes
 import io
 
 
-class TextPreProcessor:
+class TextPreProcessor(FileInputProcessor):
     def __init__(self):
         self.english_vocab = set(word.lower() for word in brown.words())
 
